@@ -24,7 +24,7 @@ export default function Login() {
       // }
 
       console.log("Logged in");
-      //  router.push("./(admin)");
+      router.push("./(tabs)");
     } catch (error) {
       console.error(error);
       alert("Something went wrong. Please try again.");
