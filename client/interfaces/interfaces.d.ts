@@ -3,9 +3,10 @@ interface User {
   name: string;
   role: string;
   org: string;
+  image: string;
 }
 
-interface Location {
+interface TaskLocation {
   id: string;
   name: string;
   address: string;
@@ -16,7 +17,7 @@ interface Location {
 interface Task {
   id: string;
   employee: User;
-  location: Location;
+  location: TaskLocation;
   date: string;
   status: string;
   description: string;
