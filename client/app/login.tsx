@@ -39,13 +39,13 @@ export default function Login() {
           width: 100,
           height: 100,
           marginTop: 20,
-          marginBottom: 5,
+          marginBottom: 15,
           marginHorizontal: "auto",
         }}
         resizeMode="contain"
       />
 
-      <Text className="text-3xl text-center text-blue-600 font-bold mb-8">
+      <Text className="text-3xl text-center text-[#0d8eb5] font-bold mb-8">
         Log in to account
       </Text>
 
@@ -68,16 +68,16 @@ export default function Login() {
       />
 
       <Pressable
-        className="w-72 h-12 bg-blue-400 mt-6 rounded-md flex items-center justify-center"
+        className="w-72 h-12 bg-[#1387ab] mt-6 rounded-md flex items-center justify-center"
         onPress={signin}
       >
         <Text className="text-white text-lg font-bold">Sign in</Text>
       </Pressable>
 
       <View className="flex-row mt-3">
-        <Text className="text-blue-600">Don't have an account? </Text>
+        <Text className="text-[#1387ab]">Don't have an account? </Text>
         <Pressable>
-          <Text className="text-blue-600 underline">Sign up</Text>
+          <Text className="text-[#1387ab] underline">Sign up</Text>
         </Pressable>
       </View>
     </View>

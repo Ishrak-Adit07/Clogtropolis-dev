@@ -45,7 +45,7 @@ const index = () => {
             </Text>
             <MapListToggleButton />
           </View>
-          <View className="bg-red-400 px-2 rounded-lg">
+          <View className="bg-[#0e343d] px-2 rounded-lg">
             <FlatList
               data={ASSIGNED_TASKS}
               renderItem={({ item }) => <TaskCard task={item} />}

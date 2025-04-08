@@ -7,14 +7,14 @@ function TabIcon({ focused, icon }: any) {
   if (focused) {
     return (
       <View className="flex flex-row w-full flex-1 gap-1 min-w-[112px] min-h-14 mt-4 justify-center items-center rounded-full overflow-hidden">
-        <Image source={icon} tintColor="#FF0000" className="size-5" />
+        <Image source={icon} tintColor="#30dbc7" className="size-5" />
       </View>
     );
   }
 
   return (
     <View className="size-full justify-center items-center mt-4 rounded-full">
-      <Image source={icon} tintColor="#E3B612" className="size-5" />
+      <Image source={icon} tintColor="#3080db" className="size-5" />
     </View>
   );
 }
@@ -31,7 +31,7 @@ export default function TabsLayout() {
           alignItems: "center",
         },
         tabBarStyle: {
-          backgroundColor: "#fdf8ee",
+          backgroundColor: "#0e343d",
           borderRadius: 50,
           marginHorizontal: 20,
           marginBottom: 20,
@@ -39,7 +39,7 @@ export default function TabsLayout() {
           position: "absolute",
           overflow: "hidden",
           borderWidth: 1,
-          borderColor: "#fdf8ee",
+          borderColor: "#0e343d",
         },
       }}
     >
