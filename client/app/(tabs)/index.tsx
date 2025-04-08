@@ -3,6 +3,7 @@ import React from "react";
 import IndexProfile from "@/components/IndexProfile";
 import { ASSIGNED_TASKS } from "@/constants/dummy";
 import TaskCard from "@/components/TaskCard";
+import MapListToggleButton from "@/components/buttons/MapListToggleButton";
 
 const index = () => {
   return (
@@ -17,16 +18,44 @@ const index = () => {
       >
         <IndexProfile />
 
-        <View className="w-full">
-          <FlatList
-            data={ASSIGNED_TASKS}
-            renderItem={({ item }) => <TaskCard task={item} />}
-            keyExtractor={(item) => item.id.toString()}
-            className="mt-2 pb-32 w-full"
-            showsVerticalScrollIndicator={false}
-            showsHorizontalScrollIndicator={false}
-            scrollEnabled={false}
-          />
+        <View className="w-full mb-20">
+          <View>
+            <Text className="text-2xl text-black font-bold text-left mt-4 mb-2">
+              Assigned Tasks
+            </Text>
+            <MapListToggleButton />
+          </View>
+          <View className="bg-[#0e343d] px-2 rounded-lg">
+            <FlatList
+              data={ASSIGNED_TASKS}
+              renderItem={({ item }) => <TaskCard task={item} />}
+              keyExtractor={(item) => item.id.toString()}
+              className="mt-2 w-full"
+              showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
+              scrollEnabled={false}
+            />
+          </View>
+        </View>
+
+        <View className="w-full mb-20">
+          <View>
+            <Text className="text-2xl text-black font-bold text-left mt-4 mb-2">
+              Past Tasks
+            </Text>
+            <MapListToggleButton />
+          </View>
+          <View className="bg-red-400 px-2 rounded-lg">
+            <FlatList
+              data={ASSIGNED_TASKS}
+              renderItem={({ item }) => <TaskCard task={item} />}
+              keyExtractor={(item) => item.id.toString()}
+              className="mt-2 w-full"
+              showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
+              scrollEnabled={false}
+            />
+          </View>
         </View>
       </ScrollView>
     </View>
