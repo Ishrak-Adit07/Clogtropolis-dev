@@ -17,8 +17,8 @@ const Header = () => {
         resizeMode="contain"
       />
       <Text className="text-2xl text-center">
-        <Text className="text-red-500">Iron</Text>
-        <Text className="text-yellow-500">Man</Text>
+        <Text className="text-blue-500">Clog</Text>
+        <Text className="text-emerald-500">Tropolis</Text>
       </Text>
     </View>
   );
