@@ -3,15 +3,29 @@ import React, { useState } from "react";
 import Header from "../Header";
 import { RadioButton } from "react-native-paper";
 import Checkbox from "expo-checkbox";
-import { DUMMY_QUESTIONS } from "@/constants/questions";
 import { useRouter } from "expo-router";
+import { useQuestionStore } from "@/store/questionStore";
 
 const TaskDetails = () => {
+  const current_questions = useQuestionStore(
+    (state) => state.current_questions
+  );
+
+  if (!current_questions) {
+    return (
+      <View className="flex-1 justify-center items-center p-6">
+        <Text className="text-black text-base text-center">
+          Questions for selected tasks are not found. Please try again later.
+        </Text>
+      </View>
+    );
+  }
+
   const router = useRouter();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<{ [key: string]: any }>({});
 
-  const currentQuestion = DUMMY_QUESTIONS[currentQuestionIndex];
+  const currentQuestion = current_questions[currentQuestionIndex];
 
   const handleShortAnswer = (text: string) => {
     setAnswers((prev) => ({
@@ -115,7 +129,7 @@ const TaskDetails = () => {
           <View />
         )}
 
-        {currentQuestionIndex < DUMMY_QUESTIONS.length - 1 ? (
+        {currentQuestionIndex < current_questions.length - 1 ? (
           <Pressable
             className="bg-emerald-500 px-4 py-2 rounded-md ml-auto"
             onPress={() => setCurrentQuestionIndex((prev) => prev + 1)}
