@@ -1,6 +1,9 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
+import { useTaskStore } from "@/store/taskStore";
+import { useQuestionStore } from "@/store/questionStore";
+import { DUMMY_QUESTIONS } from "@/constants/questions";
 
 interface TaskCardProps {
   task: Task;
@@ -8,7 +11,14 @@ interface TaskCardProps {
 
 const TaskCard = ({ task }: TaskCardProps) => {
   const router = useRouter();
+  const setCurrentTask = useTaskStore((state) => state.setCurrentTask);
+  const setCurrentQuestions = useQuestionStore(
+    (state) => state.setCurrentQuestions
+  );
+
   const routeToTaskDetails = () => {
+    setCurrentTask(task);
+    setCurrentQuestions(DUMMY_QUESTIONS);
     router.push(`../components/task/${task.id}`);
   };
 
