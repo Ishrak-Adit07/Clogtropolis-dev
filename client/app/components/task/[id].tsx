@@ -1,16 +1,139 @@
-import { View, ScrollView, Text } from "react-native";
-import React from "react";
+import { View, ScrollView, Text, TextInput, Pressable } from "react-native";
+import React, { useState } from "react";
 import Header from "../Header";
+import { RadioButton } from "react-native-paper";
+import Checkbox from "expo-checkbox";
+import { DUMMY_QUESTIONS } from "@/constants/questions";
+import { useRouter } from "expo-router";
 
 const TaskDetails = () => {
+  const router = useRouter();
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState<{ [key: string]: any }>({});
+
+  const currentQuestion = DUMMY_QUESTIONS[currentQuestionIndex];
+
+  const handleShortAnswer = (text: string) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [currentQuestion.id]: text,
+    }));
+  };
+
+  const handleSingleChoice = (id: string) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [currentQuestion.id]: id,
+    }));
+  };
+
+  const handleMultipleChoice = (id: string) => {
+    const prevAnswers = answers[currentQuestion.id] || [];
+    if (prevAnswers.includes(id)) {
+      setAnswers((prev) => ({
+        ...prev,
+        [currentQuestion.id]: prevAnswers.filter((i: string) => i !== id),
+      }));
+    } else {
+      setAnswers((prev) => ({
+        ...prev,
+        [currentQuestion.id]: [...prevAnswers, id],
+      }));
+    }
+  };
+
   return (
-    <View>
-      <ScrollView>
+    <View className="flex-1 bg-white relative">
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: 160 }}
+        showsVerticalScrollIndicator={false}
+      >
         <Header />
-        <Text className="text-center text-xl font-bold text-emerald-400 mt-20">
-          Hello world
-        </Text>
+        <View className="mt-10 px-6">
+          <Text className="text-xl font-bold text-emerald-600 mb-4">
+            Q{currentQuestionIndex + 1}: {currentQuestion.question_text}
+          </Text>
+
+          {currentQuestion.type === "short_descriptive_answer" && (
+            <TextInput
+              className="border p-3 rounded-md text-base"
+              placeholder="Type your answer..."
+              value={answers[currentQuestion.id] || ""}
+              onChangeText={handleShortAnswer}
+              multiline
+            />
+          )}
+
+          {currentQuestion.type === "multiple_choice_single" &&
+            currentQuestion.options.map((opt) => (
+              <Pressable
+                key={opt.id}
+                className="flex-row items-center mb-3"
+                onPress={() => handleSingleChoice(opt.id)}
+              >
+                <RadioButton
+                  value={opt.id}
+                  status={
+                    answers[currentQuestion.id] === opt.id
+                      ? "checked"
+                      : "unchecked"
+                  }
+                  onPress={() => handleSingleChoice(opt.id)}
+                />
+                <Text className="ml-2">{opt.text}</Text>
+              </Pressable>
+            ))}
+
+          {currentQuestion.type === "multiple_choice_multiple" &&
+            currentQuestion.options.map((opt) => (
+              <View key={opt.id} className="flex-row items-center mb-3">
+                <Checkbox
+                  value={
+                    answers[currentQuestion.id]
+                      ? answers[currentQuestion.id].includes(opt.id)
+                      : false
+                  }
+                  onValueChange={() => handleMultipleChoice(opt.id)}
+                />
+                <Text className="ml-2">{opt.text}</Text>
+              </View>
+            ))}
+        </View>
       </ScrollView>
+
+      <View className="absolute bottom-20 left-0 right-0 bg-blue-400 px-6 py-4 flex-row justify-between">
+        {currentQuestionIndex > 0 ? (
+          <Pressable
+            className="bg-gray-300 px-4 py-2 rounded-md"
+            onPress={() =>
+              setCurrentQuestionIndex((prev) => Math.max(prev - 1, 0))
+            }
+          >
+            <Text>Back</Text>
+          </Pressable>
+        ) : (
+          <View />
+        )}
+
+        {currentQuestionIndex < DUMMY_QUESTIONS.length - 1 ? (
+          <Pressable
+            className="bg-emerald-500 px-4 py-2 rounded-md ml-auto"
+            onPress={() => setCurrentQuestionIndex((prev) => prev + 1)}
+          >
+            <Text className="text-white">Next</Text>
+          </Pressable>
+        ) : (
+          <Pressable
+            className="bg-blue-600 px-4 py-2 rounded-md ml-auto"
+            onPress={() => {
+              console.log("Submitted answers:", answers);
+              router.push("../../(tabs)");
+            }}
+          >
+            <Text className="text-white">Submit</Text>
+          </Pressable>
+        )}
+      </View>
     </View>
   );
 };

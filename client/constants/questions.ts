@@ -1,4 +1,4 @@
-export const questions: Question[] = [
+export const DUMMY_QUESTIONS: Question[] = [
   {
     id: "q1",
     task_id: "hogwarts101",
@@ -18,6 +18,44 @@ export const questions: Question[] = [
       { id: "1", text: "Restart the code" },
       { id: "2", text: "Blame the compiler" },
       { id: "3", text: "Comment it out and act like it never happened" },
+      {
+        id: "4",
+        text: "Google the error and hope StackOverflow saves the day",
+      },
+      {
+        id: "4",
+        text: "Google the error and hope StackOverflow saves the day",
+      },
+      {
+        id: "4",
+        text: "Google the error and hope StackOverflow saves the day",
+      },
+      { id: "1", text: "Restart the code" },
+      { id: "2", text: "Blame the compiler" },
+      { id: "3", text: "Comment it out and act like it never happened" },
+      {
+        id: "4",
+        text: "Google the error and hope StackOverflow saves the day",
+      },
+      {
+        id: "4",
+        text: "Google the error and hope StackOverflow saves the day",
+      },
+      {
+        id: "4",
+        text: "Google the error and hope StackOverflow saves the day",
+      },
+      { id: "1", text: "Restart the code" },
+      { id: "2", text: "Blame the compiler" },
+      { id: "3", text: "Comment it out and act like it never happened" },
+      {
+        id: "4",
+        text: "Google the error and hope StackOverflow saves the day",
+      },
+      {
+        id: "4",
+        text: "Google the error and hope StackOverflow saves the day",
+      },
       {
         id: "4",
         text: "Google the error and hope StackOverflow saves the day",
