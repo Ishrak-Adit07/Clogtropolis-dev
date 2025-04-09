@@ -10,7 +10,7 @@ interface TaskState {
   setCurrentTask: (task: Task) => void;
 }
 
-export const useBillStore = create<TaskState>((set) => ({
+export const useTaskStore = create<TaskState>((set) => ({
   assigned_tasks: [],
   past_tasks: [],
   current_task: null,
