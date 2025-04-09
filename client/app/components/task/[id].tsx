@@ -1,13 +1,15 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, ScrollView, Text } from "react-native";
 import React from "react";
 import Header from "../Header";
 
 const TaskDetails = () => {
   return (
     <View>
-      <ScrollView className="flex-1 bg-dark-100 p-4">
+      <ScrollView>
         <Header />
-        <Text>This is for task details</Text>
+        <Text className="text-center text-xl font-bold text-emerald-400 mt-20">
+          Hello world
+        </Text>
       </ScrollView>
     </View>
   );
