@@ -101,7 +101,7 @@ const TaskDetails = () => {
         </View>
       </ScrollView>
 
-      <View className="absolute bottom-20 left-0 right-0 bg-blue-400 px-6 py-4 flex-row justify-between">
+      <View className="absolute bottom-10 left-4 right-4 bg-[#0e343d] rounded-lg px-6 py-4 flex-row justify-between">
         {currentQuestionIndex > 0 ? (
           <Pressable
             className="bg-gray-300 px-4 py-2 rounded-md"
@@ -124,7 +124,7 @@ const TaskDetails = () => {
           </Pressable>
         ) : (
           <Pressable
-            className="bg-blue-600 px-4 py-2 rounded-md ml-auto"
+            className="bg-[#3080db] px-4 py-2 rounded-md ml-auto"
             onPress={() => {
               console.log("Submitted answers:", answers);
               router.push("../../(tabs)");

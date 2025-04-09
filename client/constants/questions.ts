@@ -22,44 +22,6 @@ export const DUMMY_QUESTIONS: Question[] = [
         id: "4",
         text: "Google the error and hope StackOverflow saves the day",
       },
-      {
-        id: "4",
-        text: "Google the error and hope StackOverflow saves the day",
-      },
-      {
-        id: "4",
-        text: "Google the error and hope StackOverflow saves the day",
-      },
-      { id: "1", text: "Restart the code" },
-      { id: "2", text: "Blame the compiler" },
-      { id: "3", text: "Comment it out and act like it never happened" },
-      {
-        id: "4",
-        text: "Google the error and hope StackOverflow saves the day",
-      },
-      {
-        id: "4",
-        text: "Google the error and hope StackOverflow saves the day",
-      },
-      {
-        id: "4",
-        text: "Google the error and hope StackOverflow saves the day",
-      },
-      { id: "1", text: "Restart the code" },
-      { id: "2", text: "Blame the compiler" },
-      { id: "3", text: "Comment it out and act like it never happened" },
-      {
-        id: "4",
-        text: "Google the error and hope StackOverflow saves the day",
-      },
-      {
-        id: "4",
-        text: "Google the error and hope StackOverflow saves the day",
-      },
-      {
-        id: "4",
-        text: "Google the error and hope StackOverflow saves the day",
-      },
     ],
     correct_option_id: "4",
   },
