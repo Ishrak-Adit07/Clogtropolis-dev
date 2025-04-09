@@ -1,7 +1,7 @@
 export const DUMMY_USER = {
   id: "2abc-3de3-ad3d-3d83",
   name: "John Doe",
-  role: "Cleaner",
+  role: "Informant",
   org: "Dhaka North City Corporation",
   image: null,
 };
