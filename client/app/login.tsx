@@ -2,28 +2,24 @@ import { useState } from "react";
 import { View, Text, TextInput, Pressable, Image } from "react-native";
 import { useRouter } from "expo-router";
 import { icons } from "@/constants/icons";
+import { useUserStore } from "@/store/useStore";
+import { useTaskStore } from "@/store/taskStore";
+import { ASSIGNED_TASKS, DUMMY_USER } from "@/constants/dummy";
 
 export default function Login() {
   const router = useRouter();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
+  const setCurrentUser = useUserStore((state) => state.setCurrentUser);
+  const setAssignedTasks = useTaskStore((state) => state.setAssignedTasks);
+  const setPastTasks = useTaskStore((state) => state.setPastTasks);
+
   const signin = async () => {
     try {
-      // const response = await fetch("https://your-api.com/api/login", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({ name, password }),
-      // });
-
-      // const data = await response.json();
-
-      // if (!response.ok) {
-      //   alert(data.message || "Login failed");
-      //   return;
-      // }
-
-      console.log("Logged in");
+      setCurrentUser(DUMMY_USER);
+      setAssignedTasks(ASSIGNED_TASKS);
+      setPastTasks(ASSIGNED_TASKS);
       router.push("./(tabs)");
     } catch (error) {
       console.error(error);

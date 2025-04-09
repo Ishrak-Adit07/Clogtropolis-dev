@@ -1,9 +1,9 @@
 interface User {
-  id: number;
+  id: string;
   name: string;
   role: string;
   org: string;
-  image: string;
+  image: string | null;
 }
 
 interface TaskLocation {

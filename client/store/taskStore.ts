@@ -6,8 +6,8 @@ interface TaskState {
   current_task: Task | null;
 
   setAssignedTasks: (tasks: Task[]) => void;
-  setPendingTasks: (tasks: Task[]) => void;
   setCurrentTask: (task: Task) => void;
+  setPastTasks: (tasks: Task[]) => void;
 }
 
 export const useTaskStore = create<TaskState>((set) => ({
@@ -16,6 +16,6 @@ export const useTaskStore = create<TaskState>((set) => ({
   current_task: null,
 
   setAssignedTasks: (tasks: Task[]) => set({ assigned_tasks: tasks }),
-  setPendingTasks: (tasks: Task[]) => set({ past_tasks: tasks }),
   setCurrentTask: (task: Task) => set({ current_task: task }),
+  setPastTasks: (tasks: Task[]) => set({ past_tasks: tasks }),
 }));
