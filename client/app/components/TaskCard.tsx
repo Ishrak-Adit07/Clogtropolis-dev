@@ -1,14 +1,22 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
-import { icons } from "@/constants/icons"; // Ensure you have icons.person, icons.calendar, etc.
+import { useRouter } from "expo-router";
 
 interface TaskCardProps {
   task: Task;
 }
 
 const TaskCard = ({ task }: TaskCardProps) => {
+  const router = useRouter();
+  const routeToTaskDetails = () => {
+    router.push(`../components/task/${task.id}`);
+  };
+
   return (
-    <TouchableOpacity className="w-full bg-white rounded-2xl p-2 mb-2 shadow-md shadow-black/10">
+    <TouchableOpacity
+      className="w-full bg-white rounded-2xl p-2 mb-2 shadow-md shadow-black/10"
+      onPress={routeToTaskDetails}
+    >
       {/* Location title */}
       <Text className="text-lg font-semibold text-gray-900 mb-1">
         {task.location.name}

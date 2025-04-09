@@ -1,9 +1,9 @@
 import { View, Text, ScrollView, FlatList } from "react-native";
 import React from "react";
-import IndexProfile from "@/components/IndexProfile";
+import IndexProfile from "@/app/components/IndexProfile";
 import { ASSIGNED_TASKS } from "@/constants/dummy";
-import TaskCard from "@/components/TaskCard";
-import MapListToggleButton from "@/components/buttons/MapListToggleButton";
+import TaskCard from "@/app/components/TaskCard";
+import MapListToggleButton from "@/app/components/buttons/MapListToggleButton";
 
 const index = () => {
   return (

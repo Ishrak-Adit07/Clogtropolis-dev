@@ -17,6 +17,12 @@ export default function RootLayout() {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="components"
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack>
     </>
   );

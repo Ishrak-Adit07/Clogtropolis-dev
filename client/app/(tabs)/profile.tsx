@@ -1,7 +1,7 @@
 import { View, Text, Pressable } from "react-native";
 import { useRouter } from "expo-router";
 import { DUMMY_USER } from "@/constants/dummy";
-import Header from "@/components/Header";
+import Header from "@/app/components/Header";
 
 const Profile = () => {
   const router = useRouter();
